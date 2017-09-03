@@ -1,0 +1,51 @@
+body{ 
+ background-image: url("../images/train12.jpg");
+}
+
+
+
+.jumbotron{
+background-color:white;
+    text-align: center;
+    opacity: 0.6;
+     margin-top:30px;
+     }
+
+.jumbotron h1 {
+color:black;
+text-align: center;
+}
+
+#head{
+  text-align: center;
+
+}
+
+.form-control {
+width:97%;
+}
+
+  .panel-title {
+  color:white;
+  text-align: center;
+  }
+
+  .panel-heading {
+  color:#0eb24b;
+  }
+
+ .panel-primary>.panel-heading {
+  background-color:#0eb24b;
+  border-color: #0eb24b;
+ }
+
+ .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+padding: 20px;
+ }
+ 
+ .btn {
+  margin-bottom: 20px;
+  color:white;
+  background-color:#0eb24b; 
+
+ }
