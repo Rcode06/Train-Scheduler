@@ -25,7 +25,8 @@ $("#add-train").on("click", function(event) {
 
   var trainName = $("#train-name-input").val().trim();
   var trainDestination = $("#destination-input").val().trim();
-  var firstTrainTime = moment($("#time-input").val().trim(), "HH:mm").subtract(10, "years").format("X");
+  // First Time (pushed back 1 year to make sure it comes before current time)
+  var firstTrainTime = moment($("#time-input").val().trim(), "HH:mm").subtract(1, "years").format("X");
   var frequency = $("#frequency-input").val().trim();
   
    //Test
@@ -59,54 +60,32 @@ $("#add-train").on("click", function(event) {
   $("#destination-input").val("");
   $("#time-input").val("");
   $("#frequency-input").val("");
-  $("#nextArrival").val();
-  $("#minAway").val();
+ 
 
 });
 
-
+  //adding trains to firebase
   database.on("child_added", function(childSnapshot){
 
-  var trainName = childSnapshot.val().name;
+  var name = childSnapshot.val().name;
   var destination = childSnapshot.val().destination;
-  var firstTrainTime =childSnapshot.val().firstTrainTime;
-  var frequency =childSnapshot.val().frequency;
+  var time = childSnapshot.val().time;
+  var frequency = childSnapshot.val().frequency;
 
 
-  var tFrequency = 5;
-  var firstTime = "03:30";
+  var remainder = moment().diff(moment.unix(time),"minutes")%frequency;
+  var minAway = frequency - remainder;
+  var nextArrival = moment().add(minAway, "m").format("hh:mm A");
 
-
-  //first time (pushed back 1 year to make sure it comes before current time)
-  var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
-
-  // Current Time
-  var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
-
-  // Difference between the times
-  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-  console.log("DIFFERENCE IN TIME: " + diffTime);
-
-  // Time apart (remainder)
-  var tRemainder = diffTime % tFrequency;
-  console.log(tRemainder);
-
-  // Minute Until Train
-  var minAway = tFrequency - tRemainder;
-  console.log("MINUTES TILL TRAIN: " + minAway);
-
-  // Next Train
-  var nextArrival = moment().add(minAway, "minutes");
-  console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
-
-
+  console.log(remainder);
+  console.log(minAway);
+  console.log(nextArrival);
 
  
- //full list of items to the well
-$("#add-train-row >tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + firstTrainTime + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
+
+ 
+ full list of items to the well
+$("#directory > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
 
  });
 
