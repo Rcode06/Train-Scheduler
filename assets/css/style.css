@@ -41,8 +41,24 @@ width:97%;
 
  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
 padding: 20px;
+
  }
  
+ #trainName{
+  font-weight: bold;
+ }
+ #destination{
+  font-weight: bold;
+ }
+ #frequency{
+  font-weight: bold;
+ }
+ #nextArrival{
+  font-weight: bold;
+ }
+ #minAway{
+  font-weight: bold;
+ }
  .btn {
   margin-bottom: 20px;
   color:white;
