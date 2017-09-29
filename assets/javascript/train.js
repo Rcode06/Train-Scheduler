@@ -90,7 +90,4 @@ $("#directory > tbody").append("<tr><td>" + name + "</td><td>" + destination + "
  });
 
 
-function(errorObject) {
-    // console.log("Errors handled: " + errorObject.code);
-  };
 
