@@ -84,7 +84,11 @@ $("#add-train").on("click", function(event) {
  
 
  
+// <<<<<<< HEAD
  // full list of items to the well
+// =======
+ // full list of items to the well
+// >>>>>>> 56f50d5a334edb93f3fe5c14cf48aee54c848233
 $("#directory > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
 
  });
