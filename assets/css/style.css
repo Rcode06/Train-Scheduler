@@ -1,7 +1,10 @@
-body{ 
- background-image: url("../images/train12.jpg");
+body { 
+  background: url("../images/Terminal2.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
 
 
 .jumbotron{
