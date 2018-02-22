@@ -6,6 +6,9 @@
 
 ![Screenshot](assets/images/shot.jpg)
 
+## Technologies implemented
+
+*HTML, CSS, Bootstrap, Javascript.
 
 ## Author
 
